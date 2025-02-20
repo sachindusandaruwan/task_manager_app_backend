@@ -12,10 +12,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@prisma/client": "^6.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mysql2": "^3.12.0",
-    "prisma": "^6.4.0"
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.1",
+    "mysql2": "^3.12.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
