@@ -38,4 +38,25 @@ router.get('/get/:id', async (req, res) => {
     }
 });
 
+
+//delete task
+router.delete('/delete/:id', async (req, res) => {
+    try{
+        await Task.findByIdAndDelete(req.params.id);
+        res.status(200).json({message: "Task deleted successfully"});
+    }catch (error) {
+        res.status(500).json({message: "Error deleting task", error});
+    }
+});
+
+//update task
+router.put('/update/:id', async (req, res) => {
+    try {
+        await Task.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).json({message: "Task updated successfully"});
+    }catch (error) {
+        res.status(500).json({message: "Error updating task", error});
+    }
+});
+
 export default router;
