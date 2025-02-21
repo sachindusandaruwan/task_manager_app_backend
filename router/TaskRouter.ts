@@ -15,4 +15,27 @@ router.post('/add',async (req, res) => {
         res.status(500).json({message: "Error creating task", error});
     }
 });
+
+//getAll task
+router.get('/getall', async (req, res) => {
+    try{
+        const tasks = await Task.find();
+        res.status(200).json(tasks);
+    }
+    catch (error) {
+        res.status(500).json({message: "Error fetching tasks", error});
+    }
+});
+
+//get task
+router.get('/get/:id', async (req, res) => {
+    try {
+        const task = await Task.findById(req.params.id);
+        res.status(200).json(task);
+    }
+    catch (error) {
+        res.status(500).json({message: "Error fetching task", error});
+    }
+});
+
 export default router;
