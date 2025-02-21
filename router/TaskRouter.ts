@@ -6,8 +6,8 @@ const router = express.Router();
 // Create a new task
 router.post('/add',async (req, res) => {
     try {
-        const {startDateTime,endDateTime, title, place, status} = req.body;
-        const newTask = new Task({startDateTime,endDateTime, title, place, status});
+        const {startDateTime,endDateTime, title, place, status,userId} = req.body;
+        const newTask = new Task({startDateTime,endDateTime, title, place, status,userId});
         await newTask.save();
         res.status(201).json({message: "Task created successfully", task: newTask});
     }

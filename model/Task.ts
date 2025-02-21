@@ -6,6 +6,7 @@ export interface ITask extends Document {
     title: string;
     place: string;
     status: string;
+    userId:string;
 }
 
 const TaskSchema: Schema = new Schema({
@@ -14,6 +15,7 @@ const TaskSchema: Schema = new Schema({
     title: { type: String, required: true },
     place: { type: String, required: true },
     status: { type: String, required: true, enum: ['pending', 'completed', 'cancelled'] },
+    userId: { type: String, required: true }
 }, {
     timestamps: true
 });
