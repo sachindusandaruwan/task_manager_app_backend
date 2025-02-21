@@ -1,14 +1,16 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ITask extends Document {
-    dateTime: Date;
+    startDateTime: Date;
+    endDateTime: Date;
     title: string;
     place: string;
     status: string;
 }
 
 const TaskSchema: Schema = new Schema({
-    dateTime: { type: Date, required: true },
+    startDateTime: { type: Date, required: true },
+    endDateTime: { type: Date, required: true },
     title: { type: String, required: true },
     place: { type: String, required: true },
     status: { type: String, required: true, enum: ['pending', 'completed', 'cancelled'] },
