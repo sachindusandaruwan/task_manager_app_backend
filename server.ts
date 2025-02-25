@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import connectDB from './config/db';
-import userRouter from "./router/UserRouter";
+import userRouter from "./router/auth-router";
 import taskRouter from "./router/TaskRouter";
 dotenv.config();
 
