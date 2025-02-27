@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {User} from "../model/User";
 import  {generateAccessToken, generateRefreshToken} from "../utill/GenerateToken";
 import jwt, {Secret} from "jsonwebtoken";
+import {Task} from "../model/Task";
 
 
 
@@ -43,6 +44,7 @@ export const signUpUser = async (req: any, res: any) => {
 
 export const signInUser = async (req: any, res: any) => {
     const { email, password } = req.body;
+    console.log(email, password);
     try {
         const user = await User.findOne({ email });
 
@@ -85,3 +87,4 @@ export const refreshToken = async (req: any, res: any) => {
         res.status(403).json({ message: "Invalid or expired refresh token" });
     }
 };
+

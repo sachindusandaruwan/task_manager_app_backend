@@ -1,7 +1,7 @@
 import express from 'express';
 import { Task } from '../model/Task';
 import {protector} from "../middleware/AuthMiddleware";
-import {deletetask, getAllTasks, getTask, saveTask, updateTask} from "../controller/task-controller";
+import {deletetask, getAllTasks, getTask, getTaskByUserId, saveTask, updateTask} from "../controller/task-controller";
 
 const router = express.Router();
 
@@ -20,5 +20,8 @@ router.delete('/delete/:id',protector,deletetask);
 
 //update task
 router.put('/update/:id',protector,updateTask);
+
+
+router.get('/getTaskByUser/:userId',protector,getTaskByUserId);
 
 export default router;

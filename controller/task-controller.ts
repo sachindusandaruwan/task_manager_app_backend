@@ -53,10 +53,21 @@ export const deletetask= async (req:any, res:any) => {
 //update task
 export const updateTask=async (req:any, res:any) => {
     try {
-        await Task.findByIdAndUpdate(req.params.id, req.body);
-        res.status(200).json({message: "Task updated successfully"});
+        const updated= await Task.findByIdAndUpdate(req.params.id, req.body);
+        console.log(updated);
+        res.status(200).json(updated);
+
     }catch (error) {
         res.status(500).json({message: "Error updating task", error});
+    }
+};
+
+export const getTaskByUserId = async (req: any, res: any) => {
+    try {
+        const tasks = await Task.find({ userId: req.params.userId });
+        res.status(200).json(tasks);
+    } catch (error) {
+        res.status(500).json({ message: "Error fetching tasks", error });
     }
 };
 
